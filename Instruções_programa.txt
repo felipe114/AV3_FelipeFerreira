@@ -1,0 +1,4 @@
+Sistema de compra de produtos
+
+O programa tem como funcionalidade registrar em um banco de dados, determinados clientes e os produtos que irão obter. Na classe Cliente, são adicionadas todas as informações dos clientes, como endereço, nome e telefone, bem como as informações dos produtos, como nome e preco, adicionadas na classe Produto.
+No arquivo principal do programa (index.php), são criados novos objetos, onde estas informações (clientes e produtos) são armazenadas, salvas e exibidas em forma de tabela pelo PHP.
