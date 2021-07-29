@@ -23,19 +23,23 @@ $prod3 = new Produto(NULL, "Monitor", 900);
 $prod4 = new Produto(NULL, "Teclado", 380);
 $prod5 = new Produto(NULL, "Mouse", 150);
 
-/*
-$repositorio->salvar($prod1);
-$repositorio->salvar($prod2);
-$repositorio->salvar($prod3);
-$repositorio->salvar($prod4);
-$repositorio->salvar($prod5);
-*/
+
+$repositorioP->salvar($prod1);
+$repositorioP->salvar($prod2);
+$repositorioP->salvar($prod3);
+$repositorioP->salvar($prod4);
+$repositorioP->salvar($prod5);
+
 $repositorioP->todosProdutos();
 
 $repositorioC = new DAORepositorioCliente(CriaConexao::criarConexao());
 
 $cli1 = new Cliente(NULL, "Ana Oliveira", "Rua Das Nações 450", "47 992324576");
-//$repositorioC->salvar($cli1);
+$cli2 = new Cliente(NULL, "João Paulo da Silva", "Rua Tiradentes 615", "47 992334329");
+$cli3 = new Cliente(NULL, "Maria das Graças", "Rua 15 de Novembro 712", "47 992866213");
+$repositorioC->salvar($cli1);
+$repositorioC->salvar($cli2);
+$repositorioC->salvar($cli3);
 $repositorioC->todosClientes();
 
 echo "</pre>";

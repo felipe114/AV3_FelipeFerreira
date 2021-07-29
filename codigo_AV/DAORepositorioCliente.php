@@ -8,12 +8,12 @@
     require_once "montarHTML.php";
 
     use D\xampp2\htdocs\AV3_POO\Cliente;
-    use D\xampp2\htdocs\AV3_POO\RepositorioCliente;
+    use D\xampp2\htdocs\AV3_POO\InterfaceCliente;
     use D\xampp2\htdocs\AV3_POO\CriaConexao;
     use D\xampp2\htdocs\AV3_POO\montaHTML;
     use PDO;
 
-    class DAORepositorioCliente implements RepositorioCliente
+    class DAORepositorioCliente implements InterfaceCliente
     {
         private PDO $conexao;
         
@@ -34,13 +34,13 @@
         public function salvar(Cliente $cliente): bool
         {
             if($cliente->getidcliente() === null){
-                return $this->createCliente($cliente);
+                return $this->criaCliente($cliente);
             }
 
             return $this->updateCliente($cliente);
         }
 
-        public function createCliente(Cliente $cliente): bool
+        public function criaCliente(Cliente $cliente): bool
         {
             $sqlInsert = "INSERT INTO clientes (nome, endereco, telefone) VALUES (:nome, :endereco, :telefone);";
             $stmt = $this->conexao->prepare($sqlInsert);
@@ -88,4 +88,5 @@
             return $stmt->execute();
         }
     }
+
 

@@ -8,12 +8,12 @@
     require_once "montarHTML.php";
 
     use D\xampp2\htdocs\AV3_POO\Produto;
-    use D\xampp2\htdocs\AV3_POO\RepositorioProdutos;
+    use D\xampp2\htdocs\AV3_POO\InterfaceProdutos;
     use D\xampp2\htdocs\AV3_POO\CriaConexao;
     use D\xampp2\htdocs\AV3_POO\montaHTML;
     use PDO;
 
-    class DAORepositorioProduto implements RepositorioProdutos
+    class DAORepositorioProduto implements InterfaceProdutos
     {
         private PDO $conexao;
         
@@ -34,13 +34,13 @@
         public function salvar(Produto $produto): bool
         {
             if($produto->getIdProduto() === null){
-                return $this->createProduto($produto);
+                return $this->criaProduto($produto);
             }
 
             return $this->updateProduto($produto);
         }
 
-        public function createProduto(Produto $produto): bool
+        public function criaProduto(Produto $produto): bool
         {
             $sqlInsert = "INSERT INTO produtos (nome, preco) VALUES (:nome, :preco);";
             $stmt = $this->conexao->prepare($sqlInsert);
